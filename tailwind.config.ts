@@ -9,10 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'hero-image': "url('/images/hero.png')",
+        'logo': "url('/images/svgs/logo.svg')"
       },
+      fontFamily: {
+        sans: ['var(--font-poppins)']
+      },
+      colors: {
+        primary: "#003E9A"
+      }
     },
   },
   plugins: [],

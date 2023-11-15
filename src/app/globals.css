@@ -25,3 +25,14 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+
+.swiper-button-prev {
+  opacity: 0 !important;
+  display: none !important;
+}
+
+.swiper-button-next {
+  opacity: 0 !important;
+  display: none !important;
+}
