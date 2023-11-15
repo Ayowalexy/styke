@@ -219,14 +219,31 @@ export default function Home() {
         </div>
         {/* What we do */}
         <div className="w-full bg-white bg-[url('/images/bg.png')] bg-cover bg-center bg-no-repeat h-fit lg:h-[420vh]">
-          <div className="w-full hidden h-[100vh] lg:flex justify-center items-end">
+          <div className="w-full flex-col h-fit py-20 lg:py-0 lg:h-[100vh] flex justify-center items-center">
+            <div className="flex flex-col justify-center items-center">
+              <p className="font-bold text-[40px] text-black">ABOUT US</p>
+              <div className="w-[100px] h-[2px] bg-black mt-4" />
+            </div>
+            <div className="flex flex-col lg:flex-row justify-center gap-20 py-10 lg:max-w-[1200px] items-center w-full lg:w-[85%]">
+              <div className="lg:w-1/2 w-full h-[260px] lg:h-[450px] bg-[url('/images/group.png')] bg-contain bg-no-repeat bg-center"></div>
+              <div className="font-light text-lg w-[95%] text-center lg:text-left lg:w-1/2">
+                Styke is a dynamic and user-centric platform designed to 
+                revolutionize the way individuals and businesses delegate and
+                fulfill daily tasks. The platform serves as an intermediary,
+                connecting clients seeking assistance with a wide array of tasks
+                to taskers with the requisite skills and expertise. By
+                facilitating seamless collaboration and secure payment
+                processing, Styke aims to empower both clients and taskers to
+                streamline their daily routines and optimize task management.
+              </div>
+            </div>
             <div className="bg-[url('/images/svgs/arrow.svg')] w-[50px] h-[50px] bg-contain bg-no-repeat" />
           </div>
           <div className="w-full text-black pt-20 justify-center flex-col items-center flex">
             <p className="font-bold text-[40px] text-black">WHAT WE DO</p>
             <div className="w-[100px] h-[2px] bg-black mt-4" />
-            <div className="flex p-4 lg:p-0 flex-col lg:flex-row mt-20 justify-center gap-[100px] items-center">
-              <div className="w-full order-2 lg:order-1 lg:w-[35%]">
+            <div className="flex p-4 lg:p-0 flex-col lg:flex-row mt-20 justify-between  items-center">
+              <div className="w-full order-2 lg:order-1 lg:w-[45%]">
                 <div className="w-full">
                   <p className="font-regular text-[30px]">Simplified</p>
                   <h1 className="text-[45px] mt-[-10px] font-regular">
@@ -258,13 +275,13 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              <div className="w-full order-1 lg:order-2 lg:w-[37%] bg-[url('/images/tasker1.png')] bg-no-repeat bg-center bg-cover h-[470px]" />
+              <div className="w-full order-1 lg:order-2 lg:w-[37%] bg-[url('/images/tasker1.png')] bg-no-repeat bg-center bg-contain h-[470px]" />
             </div>
 
             {/* Section 2 */}
-            <div className="flex p-4  lg:p-0 flex-col lg:flex-row mt-20 justify-center gap-[100px] items-center">
-              <div className="w-full  order-1 lg:order-1 lg:w-[37%] bg-[url('/images/tasker1.png')] bg-no-repeat bg-center bg-cover h-[490px]" />
-              <div className="w-full order-2  lg:order-2 lg:w-[35%]">
+            <div className="flex p-4  lg:p-0 flex-col lg:flex-row mt-20 justify-between items-center">
+              <div className="w-full  order-1 lg:order-1 lg:w-[37%] bg-[url('/images/tasker2.png')] bg-no-repeat bg-center bg-contain h-[490px]" />
+              <div className="w-full order-2  lg:order-2 lg:w-[45%]">
                 <div className="w-full">
                   <p className="font-regular text-[30px]">Simplified</p>
                   <h1 className="text-[45px] mt-[-10px] font-regular">
@@ -299,8 +316,8 @@ export default function Home() {
             </div>
 
             {/* Section 3 */}
-            <div className="flex p-4 lg:p-0 flex-col lg:flex-row mt-20 justify-center gap-[100px] items-center">
-              <div className="w-full order-2 lg:order-1 lg:w-[35%]">
+            <div className="flex p-4 lg:p-0 flex-col lg:flex-row mt-20 justify-between items-center">
+              <div className="w-full order-2 lg:order-1 lg:w-[45%]">
                 <div className="w-full">
                   <p className="font-regular text-[30px]">Simplified</p>
                   <h1 className="text-[45px] mt-[-10px] font-regular">
@@ -332,7 +349,7 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              <div className="w-full order-1 lg:order-2 lg:w-[37%] bg-[url('/images/tasker1.png')] bg-no-repeat bg-center bg-cover h-[470px]" />
+              <div className="w-full order-1 lg:order-2 lg:w-[37%] bg-[url('/images/tasker3.png')] bg-no-repeat bg-center bg-contain h-[470px]" />
             </div>
           </div>
           {/* Footer */}
@@ -407,7 +424,10 @@ export default function Home() {
         >
           Abount
         </motion.div>
-        <motion.button initial={{ translateX: -10 }} className="pb-4 absolute left-0 bottom-10 w-[95%] ml-2 h-[40px] bg-primary">
+        <motion.button
+          initial={{ translateX: -10 }}
+          className="pb-4 absolute left-0 bottom-10 w-[95%] ml-2 h-[40px] bg-primary"
+        >
           Become a Tasker
         </motion.button>
       </motion.div>
