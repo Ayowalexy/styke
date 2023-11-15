@@ -15,6 +15,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import { useState } from "react";
 
 const arr = [
   {
@@ -53,7 +54,7 @@ export default function Home() {
   const matches = useMediaQuery("(min-width: 1024px)");
   const desktop = useMediaQuery("(max-width: 768px)");
   const tab = useMediaQuery("(min-width: 768px)");
-
+  const [showMenu, setShowMenu] = useState<boolean>(false);
 
   const handleNext = () => {
     const nextBtn = document.querySelector(
@@ -87,12 +88,34 @@ export default function Home() {
               </div>
             </div>
           ) : (
-            <div className="w-full jusitfy-between items-center">
-              <div className="bg-logo w-[117px] m-[-20px] h-[33px] bg-contain bg-no-repeat bg-center" />
-              <div className="flex gap-[5px] flex-col justify-center items-end">
-                <motion.div className="w-[35px] h-[2px] bg-white" />
-                <motion.div className="w-[35px] h-[2px] bg-white" />
-                <motion.div className="w-[35px] h-[2px] bg-white" />
+            <div className="w-full px-6 p-2 fixed z-50 jusitfy-between items-center">
+              <motion.div
+                animate={{ opacity: showMenu ? 0 : 1 }}
+                className="bg-logo w-[117px] ml-[-60px] m-[-20px] h-[33px] bg-contain bg-no-repeat bg-center"
+              />
+              <div className="w-full">
+                <div
+                  onClick={() => setShowMenu((prev) => !prev)}
+                  className="flex gap-[5px] flex-col justify-center items-end"
+                >
+                  <motion.div
+                    animate={{
+                      rotate: showMenu ? "45deg" : "0deg",
+                    }}
+                    className="origin-left w-[35px] h-[2px] bg-white"
+                  />
+                  <motion.div
+                    animate={{ opacity: showMenu ? 0 : 1 }}
+                    className="w-[35px] h-[2px] bg-white"
+                  />
+                  <motion.div
+                    animate={{
+                      rotate: showMenu ? "-45deg" : "0deg",
+                      marginTop: showMenu ? "12px" : "0px",
+                    }}
+                    className="origin-left w-[35px] h-[2px] bg-white"
+                  />
+                </div>
               </div>
             </div>
           )}
@@ -316,8 +339,13 @@ export default function Home() {
           <div className="bg-[#18335B] flex flex-col justify-center items-center mt-[150px] lg:mt-[300px] w-full h-[400px]">
             <div className="w-[299px] h-[115px] bg-contain bg-no-repeat bg-center bg-logo" />
             <div className="flex flex-col lg:flex-row gap-2 w-full justify-center items-center">
-                  <input placeholder="Email address" className="h-[45px] lg:h-[60px] w-[95%] lg:w-[600px] bg-white rounded-lg text-black pl-4" />
-                  <button className="h-[45px] lg:h-[60px] w-[180px] rounded-lg bg-[#4285F4] text-lg font-light">Subscribe Now</button>
+              <input
+                placeholder="Email address"
+                className="h-[45px] lg:h-[60px] w-[95%] lg:w-[600px] bg-white rounded-lg text-black pl-4"
+              />
+              <button className="h-[45px] lg:h-[60px] w-[180px] rounded-lg bg-[#4285F4] text-lg font-light">
+                Subscribe Now
+              </button>
             </div>
             <div className="flex  justify-center items-center gap-4 py-6">
               <div className="w-[30px] h-[30px] bg-[url('/images/svgs/twitter.svg')] bg-contain bg-no-repeat" />
@@ -328,6 +356,61 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <motion.div
+        initial={{ top: "-100vh" }}
+        animate={{
+          top: showMenu ? "0" : "-100vh",
+          transition: {
+            ease: [0.965, 0.09, 0.16, 0.835],
+            duration: 0.8,
+          },
+        }}
+        className="w-full text-white font-light text-[20px] pt-20 pl-10 h-[100vh] fixed top-0 left-0 z-40 bg-black"
+      >
+        <motion.div
+          initial={{ translateX: 20, opacity: 0 }}
+          animate={{
+            translateX: showMenu ? 20 : 0,
+            opacity: showMenu ? 1 : 0,
+            transition: {
+              delay: 1,
+            },
+          }}
+          className="pb-4"
+        >
+          Get help
+        </motion.div>
+        <motion.div
+          initial={{ translateX: 20, opacity: 0 }}
+          animate={{
+            translateX: showMenu ? 20 : 0,
+            opacity: showMenu ? 1 : 0,
+            transition: {
+              delay: 1.3,
+            },
+          }}
+          className="pb-4"
+        >
+          Tasks
+        </motion.div>
+        <motion.div
+          initial={{ translateX: 20, opacity: 0 }}
+          animate={{
+            translateX: showMenu ? 20 : 0,
+            opacity: showMenu ? 1 : 0,
+            transition: {
+              delay: 1.5,
+            },
+          }}
+          className="pb-4"
+        >
+          Abount
+        </motion.div>
+        <motion.button initial={{ translateX: -10 }} className="pb-4 absolute left-0 bottom-10 w-[95%] ml-2 h-[40px] bg-primary">
+          Become a Tasker
+        </motion.button>
+      </motion.div>
     </div>
   );
 }
